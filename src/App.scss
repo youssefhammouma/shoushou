@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.cartBtn{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.photo{
+  max-width: 260px;
+  margin-bottom: 20px;
+}
+
+.monBtn{
+  max-width: 10%;
 }
