@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {CART} from "../../services/user/userService";
 import {CartContext} from "../../contexts/cartContext";
 import {ButtonGroup, ToggleButton} from "react-bootstrap";
+import {API_URL} from "../../services/apiService";
 
 function SummaryCheckoutCard() {
 
@@ -32,7 +33,7 @@ function SummaryCheckoutCard() {
                         <div className="row justify-content-between">
                             <div className="col-auto col-md-7">
                                 <div className="media flex-column flex-sm-row"><img className=" img-fluid"
-                                                                                    src={'http://localhost:1337' + product.image.formats.thumbnail.url}
+                                                                                    src={API_URL + product.image.formats.thumbnail.url}
                                                                                     width="62" height="62"
                                                                                     alt={product.titre}/>
                                     <div className="media-body my-auto">

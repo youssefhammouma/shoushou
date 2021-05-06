@@ -52,10 +52,10 @@ function Header() {
                                     </svg>}>
                         {context.isConnected ? (
                             <>
-                            <Dropdown.Item as={Link} to={"/"}>Commandes</Dropdown.Item>
+                            <Dropdown.Item as={Link} to={"/orders"}>Commandes</Dropdown.Item>
                             <Dropdown.Item as={Link} to={"/profile/" + informations.id}>Profil</Dropdown.Item>
                             <Dropdown.Divider/>
-                            <Dropdown.Item as={Link} onClick={disconnect}>Se deconnecter</Dropdown.Item>
+                            <Dropdown.Item onClick={disconnect}>Se deconnecter</Dropdown.Item>
                             </>
                             ): (
                             <>

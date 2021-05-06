@@ -3,6 +3,7 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 import {TOKEN, USER} from "../../services/user/userService";
 import axios from "axios";
 import {Bounce, toast} from "react-toastify";
+import {API_URL} from "../../services/apiService";
 
 function ProfileDeliveryInfo() {
     const notifyError = () => toast.error("Une erreur est apparue, veuillez réessayer!", {transition: Bounce})
@@ -40,9 +41,8 @@ function ProfileDeliveryInfo() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const url = "http://localhost:1337/"
         axios
-            .put(url + "users/" + informations.id, {
+            .put(API_URL + "/users/" + informations.id, {
                 data:{
                     adresse: deliveryInfo.adresse,
                     immeuble: deliveryInfo.immeuble,

@@ -5,6 +5,7 @@ import axios from "axios";
 import {Bounce, toast} from "react-toastify";
 import {AuthContext} from "../../App";
 import {TOKEN, USER} from "../../services/user/userService";
+import {API_URL} from "../../services/apiService";
 
 function Login(props) {
     const notifyError = () => toast.error("Le compte est introuvable !", {transition: Bounce})
@@ -26,9 +27,8 @@ function Login(props) {
         if (form.checkValidity() === false) {
             event.stopPropagation();
         }else {
-            const url = "http://localhost:1337/"
             await axios
-                .post(url + "auth/local", {
+                .post(API_URL + "/auth/local", {
                     identifier: credentials.email,
                     password: credentials.password,
                 })

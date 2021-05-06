@@ -1,13 +1,13 @@
 import React, {createContext, useState} from 'react';
 import axios from "axios";
+import {API_URL} from "../services/apiService";
 
 export const ProductsContext = createContext()
 
 const ProductsContextProvider = ({children}) => {
-    const url = "http://localhost:1337/"
     let respo1 = ''
     axios
-        .get(url + "/articles")
+        .get(API_URL + "/articles")
         .then(response => {
             //handle success
             respo1 = response

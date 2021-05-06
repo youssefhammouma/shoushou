@@ -3,6 +3,7 @@ import {isConnected, TOKEN, USER} from "../../services/user/userService";
 import axios from "axios";
 import {Button, Col, Form, Row} from "react-bootstrap";
 import cryptoRandomString from "crypto-random-string";
+import {API_URL} from "../../services/apiService";
 
 function DeliveryForm(props) {
     const v = JSON.parse(localStorage.getItem(USER))
@@ -41,10 +42,9 @@ function DeliveryForm(props) {
         if (form.checkValidity() === false) {
             event.stopPropagation();
         }else {
-            const url = "http://localhost:1337/"
             if (isConnected()) {
                 axios
-                    .put(url + "users/" + informations.id, {
+                    .put(API_URL + "/users/" + informations.id, {
                         data: {
                             adresse: deliveryInfo.adresse,
                             immeuble: deliveryInfo.immeuble,
@@ -73,7 +73,7 @@ function DeliveryForm(props) {
                     })
             } else {
                 axios
-                    .post(url + 'unregistered-users', {
+                    .post(API_URL + '/unregistered-users', {
                         username: Date.now() + rand,
                         email: deliveryInfo.email,
                         nom: deliveryInfo.nom,

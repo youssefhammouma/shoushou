@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import CardArticle from "./card/card";
 import {CardDeck} from "react-bootstrap";
+import {API_URL} from "../../services/apiService";
 
 function Articles() {
     const [articles, setArticles] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:1337/articles/')
+        axios.get(API_URL + '/articles/')
             .then((response) => {
                 setArticles(response.data)
             })

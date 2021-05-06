@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Button, Form, Image} from "react-bootstrap";
 import axios from "axios";
 import { CartContext } from '../../contexts/cartContext';
+import {API_URL} from "../../services/apiService";
 
 function Product({match, location}) {
 
@@ -31,7 +32,7 @@ function Product({match, location}) {
             setArticle(location.state.article)
         } else {
             console.log("Match", match)
-            axios.get('http://localhost:1337/articles/' + match.params.id)
+            axios.get(API_URL + '/articles/' + match.params.id)
                 .then((response) => setArticle(response.data))
         }
     }, []);
@@ -44,7 +45,7 @@ function Product({match, location}) {
                             <Image
                                 width={300}
                                 height={300}
-                                src={"http://localhost:1337" + article.image.url} rounded/>
+                                src={API_URL + article.image.url} rounded/>
                         </div>
                         <div className={"col-md-6 col-xs-12"}>
                             <h2>{article.titre}</h2>

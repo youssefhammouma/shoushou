@@ -4,26 +4,11 @@ import {Button, Card, Image, ListGroup} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 import {CART} from "../../services/user/userService";
+import {API_URL} from "../../services/apiService";
 
-function Cart(props) {
+function Cart() {
     const {total, increase, decrease, removeProduct, cartItems, itemCount, clearCart} = useContext(CartContext);
     const myCart = JSON.parse(localStorage.getItem(CART))
-
-    const [validated, setValidated] = useState(false);
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.stopPropagation();
-        } else {
-            props.history.push('/delivery')
-        }
-
-        setValidated(true);
-
-    }
-
 
     return (
         <div>
@@ -42,7 +27,7 @@ function Cart(props) {
                                 <div className={"row mb-5"}>
                                     <div className={"col-4"}>
                                         <Image
-                                            src={'http://localhost:1337' + product.image.formats.thumbnail.url}
+                                            src={API_URL + product.image.formats.thumbnail.url}
                                             fluid/>
                                     </div>
                                     <div className={"col-8"}>
@@ -109,41 +94,3 @@ function Cart(props) {
 }
 
 export default Cart;
-
-
-/*<div>
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <fieldset>
-            <Form.Group as={Row}>
-                <Form.Label as="legend" column sm={2}>
-                    Mode de livraison
-                </Form.Label>
-                <Col sm={10}>
-                    <Form.Check
-                        required
-                        type="radio"
-                        label="Colissimo 5,90€"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios1"
-                        feedback="You must agree before submitting."
-                    />
-                    <Form.Check
-                        required
-                        type="radio"
-                        label="Point Relais"
-                        name="formHorizontalRadios"
-                        id="formHorizontalRadios2"
-                        feedback="You must agree before submitting."
-                    />
-                </Col>
-            </Form.Group>
-        </fieldset>
-        <p>Montant Total : {total}€</p>
-        <Form.Group as={Row}>
-            <Col sm={{span: 10, offset: 2}}>
-                <Button as={Link} to={"/"} className={"mr-2"}>CONTINUER MES ACHATS</Button>
-                <Button type="submit">VALIDER LE PANIER D'ACHAT</Button>
-            </Col>
-        </Form.Group>
-    </Form>
-</div>*/

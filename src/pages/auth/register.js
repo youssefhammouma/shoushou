@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import axios from "axios";
 import {Bounce, toast} from "react-toastify";
 import cryptoRandomString from "crypto-random-string";
+import {API_URL} from "../../services/apiService";
 
 function Register(props) {
     const notifyError = () => toast.error("Cette adresse e-mail est déjà utilisée!", {transition: Bounce})
@@ -29,9 +30,8 @@ function Register(props) {
         }else {
             setValidated(true);
 
-            const url = "http://localhost:1337/"
             axios
-                .post(url+"auth/local/register", {
+                .post(API_URL +"/auth/local/register", {
                     username: Date.now() + rand,
                     email: credentials.email,
                     password: credentials.password,

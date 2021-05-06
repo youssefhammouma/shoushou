@@ -26,6 +26,7 @@ import ProductsContextProvider from "./contexts/productsContext";
 import DeliveryInfo from "./pages/payment/deliveryInfo";
 import Unauthorized from "./components/unauthorized";
 import ProtectedRoute from "./components/route/protectedRoute";
+import Orders from "./pages/profile/orders";
 
 library.add(fas)
 
@@ -54,6 +55,7 @@ function App() {
                                 <Route path="/contact" component={Contact}/>
                                 <Route path="/login" component={Login}/>
                                 <Route path="/register" component={Register}/>
+                                <Route path="/orders" component={Orders}/>
                                 <ProtectedRoute path="/profile/"> <Profile/> </ProtectedRoute>
                                 <Route path="/cart" component={Cart}/>
                                 <Route path="/delivery" component={DeliveryInfo}/>
