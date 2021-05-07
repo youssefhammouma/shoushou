@@ -28,8 +28,6 @@ function Header() {
 
     const menu = [
         {nom: "Accueil", url: "/"},
-        {nom: "Shop", url: "/"},
-        {nom: "Blanchiment Dentaire", url: "/"},
         {nom: "A propos", url: "/about"},
         {nom: "Contact", url: "/contact"}
     ]

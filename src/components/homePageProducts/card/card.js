@@ -10,7 +10,7 @@ function CardArticle({article}) {
                 <Card.Body>
                     <Card.Title>{article.titre}</Card.Title>
                     <Card.Text>
-                        {article.prix} €
+                        {article.prix + "0€"}
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>

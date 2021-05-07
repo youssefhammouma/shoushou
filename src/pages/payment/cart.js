@@ -36,7 +36,7 @@ function Cart() {
                                             <ListGroup.Item>{"Prix: " + product.prix + "0€"}</ListGroup.Item>
                                             <ListGroup.Item>{"Quantité: " + product.quantity}</ListGroup.Item>
                                             <ListGroup.Item
-                                                variant={"success"}>{"Prix Total: " + product.prix * product.quantity + "0€"}</ListGroup.Item>
+                                                variant={"success"}>{"Prix Total: " + Number((product.prix * product.quantity).toFixed(1)) + "0€"}</ListGroup.Item>
 
                                             <div className={"row"}>
                                                 <div className={"col-1 mr-5"}>
